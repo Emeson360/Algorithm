@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Converting numbers to Igbo numerals</title>
+</head>
+<body>
+  
+
+
+  <script>
+    let numKey = [1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ];
+    let romKey = ['puku', 'nari-iteghite', 'nari-asato', 'nari-asaa', 'nari-isi', 'nari-ise', 'nari-ano', 'nari-ato', 'nari-abuo', 'nari', 'iri-iteghite', 'iri-asato',  'iri-asaa',  'iri-isi', 'iri-ise', 'iri-ano', 'iri-ato', 'iri-abuo', 'iri', 'iteghite', 'asato', 'asaa', 'isi', 'ise', 'ano', 'ato', 'abuo', 'otu' ];
+    let romArr = '';
+
+    function toRomanRec (num, index = 0 ) {
+        if(index >= romKey.length) {
+          console.log(`The roman numeral is ${romArr}`);
+          return;
+        }
+
+        let q = num / numKey[index];
+        let abQ = Math.floor(q);
+        if (num % numKey[index] == 0) {
+          num -= q * numKey[index]; 
+          romArr += romKey[index].repeat(q);
+          index++;
+        }
+        else {
+          num -= abQ * numKey[index]; 
+          romArr += (romKey[index] + " na ").repeat(abQ);
+          index++;
+        }
+        toRomanRec(num, index);
+        
+    }
+
+    toRomanRec(436) ;
+  </script>
+</body>
+</html>

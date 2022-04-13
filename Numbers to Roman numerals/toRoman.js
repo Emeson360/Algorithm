@@ -46,14 +46,14 @@ console.log(toRoman(436));
 
 // Method 3 of converting numbers to roman numerals using recursion
 
-/*
+
 let numValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
 let romKey = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
 let romArr = '';
 
-function toRomanRec (num, index = 0) {
+function toRomanRec (num, index = 12 ) {
     if (index >= romKey.length) {
-        console.log('The roman numeral is ${romArr}');
+        console.log(`The roman numeral is ${romArr}`);
         return;
     }
 
@@ -64,7 +64,7 @@ function toRomanRec (num, index = 0) {
     toRomanRec(num, index);
 }
 
-console.log(toRomanRec(10, 10)); */
+toRomanRec(1) ;
 
 
 
